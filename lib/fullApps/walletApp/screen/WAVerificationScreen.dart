@@ -46,7 +46,8 @@ class WAVerificationScreenState extends State<WAVerificationScreen> {
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: Colors.grey.withOpacity(0.2)),
           ),
-          child: Icon(Icons.arrow_back, color: appStore.isDarkModeOn ? white : black),
+          child: Icon(Icons.arrow_back,
+              color: appStore.isDarkModeOn ? white : black),
         ).onTap(() {
           finish(context);
         }),
@@ -55,7 +56,9 @@ class WAVerificationScreenState extends State<WAVerificationScreen> {
         height: context.height(),
         width: context.width(),
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('images/walletApp/wa_bg.jpg'), fit: BoxFit.cover),
+          image: DecorationImage(
+              image: AssetImage('images/walletApp/wa_bg.jpg'),
+              fit: BoxFit.cover),
         ),
         child: SingleChildScrollView(
           child: Column(
@@ -82,21 +85,22 @@ class WAVerificationScreenState extends State<WAVerificationScreen> {
                 children: [
                   SizedBox(
                     height: 60,
-                    child: OTPTextField(
-                      length: 4,
-                      width: context.width(),
-                      fieldWidth: 60,
-                      style: boldTextStyle(size: 24, color: appStore.isDarkModeOn ? white : black),
-                      textFieldAlignment: MainAxisAlignment.spaceBetween,
-                      fieldStyle: FieldStyle.box,
-                      otpFieldStyle: OtpFieldStyle(
-                        focusBorderColor: WAPrimaryColor,
-                        backgroundColor: appStore.isDarkModeOn ? cardDarkColor : Colors.grey.withOpacity(0.1),
-                        enabledBorderColor: Colors.transparent,
-                      ),
-                      onChanged: (value) {},
-                      onCompleted: (value) {},
-                    ),
+                    child: Text('OTPTextField'),
+                    // OTPTextField(
+                    //   length: 4,
+                    //   width: context.width(),
+                    //   fieldWidth: 60,
+                    //   style: boldTextStyle(size: 24, color: appStore.isDarkModeOn ? white : black),
+                    //   textFieldAlignment: MainAxisAlignment.spaceBetween,
+                    //   fieldStyle: FieldStyle.box,
+                    //   otpFieldStyle: OtpFieldStyle(
+                    //     focusBorderColor: WAPrimaryColor,
+                    //     backgroundColor: appStore.isDarkModeOn ? cardDarkColor : Colors.grey.withOpacity(0.1),
+                    //     enabledBorderColor: Colors.transparent,
+                    //   ),
+                    //   onChanged: (value) {},
+                    //   onCompleted: (value) {},
+                    // ),
                   ),
                 ],
               ),
@@ -105,9 +109,12 @@ class WAVerificationScreenState extends State<WAVerificationScreen> {
                 //    mainAxisAlignment: MainAxisAlignment.center,
                 //   crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('I didn\'t get the Code.', style: secondaryTextStyle(color: gray)),
+                  Text('I didn\'t get the Code.',
+                      style: secondaryTextStyle(color: gray)),
                   4.width,
-                  Text('Resend Code', style: boldTextStyle(color: WAPrimaryColor), textAlign: TextAlign.center),
+                  Text('Resend Code',
+                      style: boldTextStyle(color: WAPrimaryColor),
+                      textAlign: TextAlign.center),
                 ],
               ),
               16.height,
@@ -117,7 +124,8 @@ class WAVerificationScreenState extends State<WAVerificationScreen> {
                     text: "Verify Me",
                     color: WAPrimaryColor,
                     textColor: Colors.white,
-                    shapeBorder: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    shapeBorder: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
                     width: context.width(),
                     onTap: () {
                       WADashboardScreen().launch(context);
