@@ -20,7 +20,8 @@ class MLAuthenticationScreen extends StatefulWidget {
   _MLAuthenticationScreenState createState() => _MLAuthenticationScreenState();
 }
 
-class _MLAuthenticationScreenState extends State<MLAuthenticationScreen> with SingleTickerProviderStateMixin {
+class _MLAuthenticationScreenState extends State<MLAuthenticationScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController controller;
   double buttonOpacity = 1.0;
   double buttonHeight = 50.0;
@@ -60,7 +61,8 @@ class _MLAuthenticationScreenState extends State<MLAuthenticationScreen> with Si
           Container(
             margin: EdgeInsets.only(top: 24.0),
             height: context.height(),
-            decoration: boxDecorationWithRoundedCorners(backgroundColor: context.cardColor),
+            decoration: boxDecorationWithRoundedCorners(
+                backgroundColor: context.cardColor),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,8 +71,12 @@ class _MLAuthenticationScreenState extends State<MLAuthenticationScreen> with Si
                   Text(mlEnter_code!, style: boldTextStyle(size: 24)),
                   8.height,
                   createRichText(list: [
-                    TextSpan(text: mlAuthentication_msg!, style: secondaryTextStyle()),
-                    TextSpan(text: phoneNumber!, style: boldTextStyle(color: mlColorDarkBlue)),
+                    TextSpan(
+                        text: mlAuthentication_msg!,
+                        style: secondaryTextStyle()),
+                    TextSpan(
+                        text: phoneNumber!,
+                        style: boldTextStyle(color: mlColorDarkBlue)),
                   ]),
                   16.height,
                   otpField(),
@@ -81,7 +87,9 @@ class _MLAuthenticationScreenState extends State<MLAuthenticationScreen> with Si
                       8.width,
                       Text(
                         'Re-send',
-                        style: boldTextStyle(color: mlColorDarkBlue, decoration: TextDecoration.underline),
+                        style: boldTextStyle(
+                            color: mlColorDarkBlue,
+                            decoration: TextDecoration.underline),
                       ),
                       Text('01:58', textAlign: TextAlign.right).expand()
                     ],
@@ -114,9 +122,12 @@ class _MLAuthenticationScreenState extends State<MLAuthenticationScreen> with Si
                         decoration: InputDecoration(
                           labelText: mlPassword!,
                           labelStyle: secondaryTextStyle(size: 16),
-                          prefixIcon: Icon(Icons.lock_outline, size: 20, color: appStore.isDarkModeOn ? white : black),
+                          prefixIcon: Icon(Icons.lock_outline,
+                              size: 20,
+                              color: appStore.isDarkModeOn ? white : black),
                           enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: mlColorLightGrey.withOpacity(0.2)),
+                            borderSide: BorderSide(
+                                color: mlColorLightGrey.withOpacity(0.2)),
                           ),
                         ),
                       ),
@@ -126,9 +137,12 @@ class _MLAuthenticationScreenState extends State<MLAuthenticationScreen> with Si
                         decoration: InputDecoration(
                           labelText: mlReenter_password!,
                           labelStyle: secondaryTextStyle(size: 16),
-                          prefixIcon: Icon(Icons.lock_outline, size: 20, color: appStore.isDarkModeOn ? white : black),
+                          prefixIcon: Icon(Icons.lock_outline,
+                              size: 20,
+                              color: appStore.isDarkModeOn ? white : black),
                           enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: mlColorLightGrey.withOpacity(0.2)),
+                            borderSide: BorderSide(
+                                color: mlColorLightGrey.withOpacity(0.2)),
                           ),
                         ),
                       ),
@@ -141,7 +155,8 @@ class _MLAuthenticationScreenState extends State<MLAuthenticationScreen> with Si
                           finish(context);
                           return MLLoginScreen().launch(context);
                         },
-                        child: Text(mlDone!, style: boldTextStyle(color: white)),
+                        child:
+                            Text(mlDone!, style: boldTextStyle(color: white)),
                       ),
                     ],
                   ).opacity(opacity: containerOpacity),
@@ -149,7 +164,10 @@ class _MLAuthenticationScreenState extends State<MLAuthenticationScreen> with Si
               ).paddingAll(16.0),
             ),
           ),
-          Positioned(top: 30, child: mlBackToPrevious(context, appStore.isDarkModeOn ? white : black)),
+          Positioned(
+              top: 30,
+              child: mlBackToPrevious(
+                  context, appStore.isDarkModeOn ? white : black)),
         ],
       ),
     );
@@ -158,17 +176,17 @@ class _MLAuthenticationScreenState extends State<MLAuthenticationScreen> with Si
   Widget otpField() {
     return Wrap(
       children: <Widget>[
-        OTPTextField(
-          length: 6,
-          width: double.infinity,
-          fieldWidth: 35,
-          style: boldTextStyle(size: 24),
-          textFieldAlignment: MainAxisAlignment.spaceBetween,
-          fieldStyle: FieldStyle.underline,
-          onCompleted: (pin) {
-            print("Completed: " + pin);
-          },
-        ),
+        // OTPTextField(
+        //   length: 6,
+        //   width: double.infinity,
+        //   fieldWidth: 35,
+        //   style: boldTextStyle(size: 24),
+        //   textFieldAlignment: MainAxisAlignment.spaceBetween,
+        //   fieldStyle: FieldStyle.underline,
+        //   onCompleted: (pin) {
+        //     print("Completed: " + pin);
+        //   },
+        // ),
       ],
     );
   }
